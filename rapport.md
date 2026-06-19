@@ -5,7 +5,7 @@
     - Objectifs
     - Description donnees
 
-Notre objectif est de repérer le nombre de cycles cardiaques, les phases de systole et diastole, et d'afficher l'évolution des volumes des ventricules et atriums au cours du temps. Pour cela, nous allons utiliser les images fournies dans le projet.
+Notre objectif est de repérer le nombre de cycles cardiaques, les phases de systole et diastole, et d'afficher l'évolution des volumes des ventricules et atriums au cours du temps. Pour cela, nous allons utiliser les 120 images fournies pour le projet.
 
 Les images sont des images échographiques du coeur, avec un signal ECG en bas de l'image en vert. Les images sont fournies dans un dossier "data".
 
@@ -20,8 +20,6 @@ Les premieres idee que nous avons penser en debutant ce projet et apres quelques
 - Enfin, d'estimer les volumes des ventricules et atriums au cours du temps et de les afficher sous forme de courbes.
 
 Nous pensons utiliser le signal present sur les images pour faire valider nos resultats et pour identifier les cycles cardiaques. Nous pensons aussi utiliser des methodes de machine learning pour la segmentation des images.
-
-
 
 ### Idee finale :
 
@@ -44,9 +42,9 @@ Systole = phase de contraction du coeur, pendant laquelle les ventricules se vid
 
 ## Pretraitement
 
-crop automatique pour enlever les bords noirs inutiles
-CLAHE pour améliorer le contraste local
-filtre médian / bilatéral pour réduire le speckle ultrasound
+**crop** automatique pour enlever les bords noirs inutiles
+**CLAHE** pour améliorer le contraste local
+**filtre médian / bilatéral** pour réduire le speckle ultrasound
 éventuellement suppression de la trace ECG si elle gêne la segmentation
 
 ## Segmentation
@@ -58,6 +56,8 @@ filtre médian / bilatéral pour réduire le speckle ultrasound
 ## Resultats
 
 ## Validation
+
+L'ECG present en bas de chaque image est la clé de validation : les pics R correspondent aux fins de diastole, les creux entre pics à la systole. En corrélant le volume segmenté du ventricule gauche et le ventricule droit avec le signal ECG, on peut construire une courbe du volume du ventricule gauche et du ventricule droit au cours du temps, et ainsi valider les cycles cardiaques détectés.
 
 ## Limites
 
